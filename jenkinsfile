@@ -1,0 +1,45 @@
+pipeline {
+    agent any
+    
+    environment {
+        DOCKER_IMAGE = 'angular-app:latest'
+    }
+
+    stages {
+        stage('Install Dependencies') {
+            steps {
+                // Install npm dependencies
+                script {
+                    sh 'npm install --legacy-peer-deps'
+                }
+            }
+        }
+
+        stage('Build Angular App') {
+            steps {
+                // Build your Angular application
+                script {
+                    sh 'npm run build'
+                }
+            }
+        }
+
+        stage('Docker Build') {
+            steps {
+                // Build the Docker image
+                script {
+                    sh 'docker build -t $DOCKER_IMAGE .'
+                }
+            }
+        }
+
+        stage('Docker Push') {
+            steps {
+                // Push the Docker image to a container registry
+                script {
+                    sh 'docker push $DOCKER_IMAGE'
+                }
+            }
+        }
+    }
+}
