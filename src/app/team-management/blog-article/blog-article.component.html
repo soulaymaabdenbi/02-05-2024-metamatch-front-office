@@ -1,0 +1,38 @@
+<section id="center" class="clearfix center_contact">
+  <div class="center_about_m clearfix">
+    <div class="container">
+      <div class="row">
+        <div class="gallery_h text-center mgt1 clearfix">
+          <div class="col-sm-12">
+            <h1 class="mgt col">Latest News</h1>
+            <hr />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container">
+  <div class="article-list">
+    <ul>
+      <li *ngFor="let article of articles" class="article-item">
+        <img
+          [src]="article.imageUrl"
+          [alt]="article.headline"
+          class="article-image"
+        />
+        <div class="article-details">
+          <p class="publication-date">{{ article.publicationDate }}</p>
+          <p class="subline">{{ article.subline }}</p>
+          <h2 class="headline">{{ article.headline }}</h2>
+          <p class="price-range">{{ article.priceRange }}</p>
+          <a [href]="article.articleUrl" class="read-more">Read More</a>
+        </div>
+      </li>
+    </ul>
+
+    <div *ngIf="!articles" class="no-articles">
+      <p>No articles available.</p>
+    </div>
+  </div>
+</div>

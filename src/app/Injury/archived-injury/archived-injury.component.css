@@ -1,0 +1,135 @@
+.rehab { color: red; }
+.progress { color: orange; }
+.recovered { color: green; }
+
+#team_and_articles {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Diviser en deux colonnes égales */
+    gap: 20px; /* Espacement entre les éléments */
+  }
+  
+  .section-heading {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .section-divider {
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+  }
+  
+  .player-item,
+  .article-item {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .player-image,
+  .article-image {
+    width: 80px; /* Taille réduite de l'image */
+    height: 80px;
+    border-radius: 50%; /* Forme circulaire */
+    margin-right: 10px;
+  }
+  
+  .player-details,
+  .article-details {
+    flex-grow: 1;
+  }
+  
+  .player-name,
+  .player-position,
+  .club,
+  .injury-type,
+  .market-value {
+    margin: 5px 0;
+  }
+  
+ 
+  .no-players,
+  .no-articles {
+    text-align: center;
+  }
+  
+
+
+.date {
+    font-size: 12px;
+    color: #888;
+  }
+
+
+
+  .read-more {
+    display: inline-block;
+    background-color: #098f5b;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: small;
+  }
+  
+  .read-more:hover {
+    background-color: #0056b3;
+  }
+
+  .d1 {
+    font-size: 12px;
+    color: #888;
+  }
+
+  .no-articles {
+    width: 100%;
+    text-align: center;
+  }
+
+  .forum-form {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin-top: 50px;
+  }
+
+  
+.forum-form .card-body {
+  padding: 20px;
+}
+.forum-form .card-title {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center; /* Centrer horizontalement */
+    margin: 0 auto; /* Centrer verticalement */
+  }
+  
+
+  /* Style personnalisé pour les boutons de pagination en vert */
+.pagination-container .page-item .page-link {
+    color: #fff; /* Couleur du texte */
+    background-color: #098f5b; /* Couleur de fond verte */
+    border-color: #098f5b; /* Couleur de la bordure verte */
+  }
+  
+  .pagination-container .page-item .page-link:hover {
+    background-color: #098f5b; /* Couleur de fond verte foncée au survol */
+    border-color: #098f5b; /* Couleur de la bordure verte foncée au survol */
+  }
+  
+
+  .dmm {
+    max-width: 200px; /* Définissez la largeur maximale de l'image */
+    max-height: 200px; /* Définissez la hauteur maximale de l'image */
+    border-radius: 50%; /* Rendez l'image circulaire en appliquant un rayon de bordure */
+    overflow: hidden; /* Masquez le contenu débordant de l'image pour s'assurer qu'elle reste circulaire */
+}
+
+
+.center_about_m {
+  background-image: url("./pexels-jim-de-ramos-1277396.jpg");
+  background-size: cover; /* This ensures the image covers the entire container */
+  background-position: center; /* This centers the image within the container */
+}

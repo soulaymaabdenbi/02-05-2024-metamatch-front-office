@@ -1,0 +1,82 @@
+.center_home {
+  padding: 2rem 0;
+}
+
+.profile-image-container .image-wrapper {
+  width: 150px; /* Set this to the size you want */
+  height: 150px; /* Set this to the size you want */
+  display: inline-block;
+  border-radius: 50%; /* Makes it round */
+  overflow: hidden; /* Ensures nothing spills outside the border-radius */
+  line-height: 0; /* Removes any extra line height */
+  margin-bottom: 1rem; /* Adds space below the image */
+}
+
+.profile-image-container .profile-image {
+  width: 100%; /* Makes the image fill the container */
+  height: auto; /* Keeps the image aspect ratio */
+  display: block; /* Removes any inline space */
+}
+
+.profile-image-title {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.profile-image {
+  max-width: 100%;
+  border-radius: 50%;
+  background-color: #f8f9fa; /* Light gray background */
+}
+
+.image-size-info {
+  color: #6c757d; /* Gray text */
+  font-size: 0.875rem;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.btn-upload-image {
+  background-color: #4e73df;
+  border: none;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+}
+
+.account-details {
+  background-color: #fff;
+  padding: 2rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.account-details-title {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  display: block;
+  color: #6c757d;
+  margin-bottom: 0.5rem;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.375rem;
+}
+

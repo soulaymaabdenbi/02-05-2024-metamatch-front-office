@@ -1,0 +1,64 @@
+.scrap {
+  margin-top: 30px;
+}
+.match-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 40px;
+}
+
+.match-table th,
+.match-table td {
+  padding: 10px;
+  text-align: left;
+}
+
+.match-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.match-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.match-table tr:hover {
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+.match-table td {
+  border-bottom: 1px solid #ddd;
+}
+
+.match-table .date,
+.match-table .versus,
+.match-table .score {
+  font-size: 18px;
+
+  color: #4e5352;
+}
+
+.match-table .team {
+  color: #4ca788;
+}
+.match-table .versus {
+  color: #666;
+}
+
+/* match-list.component.scss */
+
+.over {
+  /* Change to whatever style you want for a completed match */
+  color: rgb(175, 8, 8); /* Change text color for better visibility */
+}
+h3 {
+  text-align: center;
+}
+.follow {
+  margin-top: 40px;
+}
+iw {
+  height: 400px;
+  width: 100%;
+}

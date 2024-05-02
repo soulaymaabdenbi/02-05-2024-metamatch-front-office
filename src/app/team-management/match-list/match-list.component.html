@@ -1,0 +1,196 @@
+<section id="center" class="clearfix center_blog">
+  <div class="container">
+    <div class="row">
+      <div class="center_blog_1 clearfix">
+        <div class="col-sm-6">
+          <div class="center_blog_1l clearfix"></div>
+        </div>
+        <div class="col-sm-6">
+          <div class="center_blog_1r text-right clearfix">
+            <ul class="mgt">
+              <li>
+                <a class="tag_menu" routerLink="/teams/calendar"
+                  >Match Calendar</a
+                >
+              </li>
+              <li>
+                <a class="tag_menu" routerLink="/teams/blog">Latest News</a>
+              </li>
+              <li class="border_none"></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="blog_detail">
+  <div class="container">
+    <div class="row">
+      <div class="blod_d1 clearfix">
+        <div class="col-sm-9">
+          <div class="blod_d1lm clearfix">
+            <div class="blod_d1l1 clearfix">
+              <!-- <img src="home6.jpg" alt="home6" class="iw" /> -->
+              <div class="gallery_h clearfix">
+                <hr />
+              </div>
+
+              <div class="scrap" *ngIf="scrapedMatches">
+                <h2 class="text-center">Calendar for the 2023-2024 season</h2>
+                <table class="match-table">
+                  <thead>
+                    <tr>
+                      <th>Date & Time</th>
+                      <th>Home Team</th>
+                      <th></th>
+                      <th>Away Team</th>
+                      <th>Result</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <ng-container *ngFor="let match of scrapedMatches">
+                      <tr
+                        [class.over]="
+                          isMatchOver(match.dateAndTime, match.matchResult)
+                        "
+                      >
+                        <td>{{ match.dateAndTime }}</td>
+                        <td>{{ match.homeTeamName }}</td>
+                        <td>vs</td>
+                        <td>{{ match.awayTeamName }}</td>
+                        <td>{{ match.matchResult }}</td>
+                      </tr>
+                    </ng-container>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="blod_d1l2 clearfix">
+              <div class="col-sm-8"></div>
+            </div>
+            <div class="blod_d1l3 clearfix">
+              <div class="blod_d1l3m_1 clearfix">
+                <div class="col-sm-3"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="blod_d1r clearfix">
+            <div class="blod_d1r1 clearfix">
+              <div class="input-group">
+                <span class="input-group-btn"> </span>
+              </div>
+              <div class="gallery_h mgt1 clearfix">
+                <h3 class="mgt">Winning</h3>
+                <hr />
+              </div>
+              <img src="assets/img/trophy.jpg" class="iw" alt="abc" />
+              <p class="text-center">
+                "Celebrate what you've accomplished, but raise the bar a little
+                higher each time you succeed." - Mia Hamm
+              </p>
+            </div>
+            <div class="blod_d1r2 clearfix">
+              <div class="gallery_h mgt1 clearfix">
+                <h3 class="follow">
+                  "In football, winning means dedication, teamwork, and never
+                  giving up. It's about pushing limits and believing in
+                  victory."
+                </h3>
+                <hr />
+              </div>
+              <!-- <ul class="social-network social-circle">
+                <li>
+                  <a href="#" class="icoRss" title="Rss"
+                    ><i class="fa fa-rss"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="#" class="icoFacebook" title="Facebook"
+                    ><i class="fa fa-facebook"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="#" class="icoTwitter" title="Twitter"
+                    ><i class="fa fa-twitter"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="#" class="icoGoogle" title="Google +"
+                    ><i class="fa fa-google-plus"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="#" class="icoLinkedin" title="Linkedin"
+                    ><i class="fa fa-linkedin"></i
+                  ></a>
+                </li>
+              </ul> -->
+            </div>
+            <!-- <div class="blod_d1r3 clearfix">
+              <div class="blod_d1r3_i clearfix">
+                <div class="col-sm-6 space_left">
+                  <div class="blod_d1r3_il">
+                    <img src="assets/img/cr.jpg" class="iw" alt="abc" />
+                  </div>
+                </div>
+                <div class="col-sm-6 space_left">
+                  <div class="blod_d1r3_ir">
+                    <h5 class="mgt bold"><a href="#">Inevitable</a></h5>
+                    <h6><i class="fa fa-calendar-o"></i> OCT 11, 2016</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="blod_d1r3_i border_none clearfix">
+                <div class="col-sm-6 space_left">
+                  <div class="blod_d1r3_il">
+                    <img src="assets/img/spain.jpg" class="iw" alt="abc" />
+                  </div>
+                </div>
+                <div class="col-sm-6 space_left">
+                  <div class="blod_d1r3_ir">
+                    <h5 class="mgt bold"><a href="#">Game Essence</a></h5>
+                    <h6><i class="fa fa-calendar-o"></i> OCT 13, 2016</h6>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+            <!-- <div class="blod_d1r4 clearfix">
+              <div class="gallery_h mgt1 clearfix">
+                <h3>Categories</h3>
+                <hr />
+              </div>
+              <ul>
+                <li>
+                  <a href="#"><i class="fa fa-chevron-right"></i> COACH (4)</a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><i class="fa fa-chevron-right"></i> PLANNING (7)</a
+                  >
+                </li>
+                <li>
+                  <a href="#"
+                    ><i class="fa fa-chevron-right"></i> STRATEGY (5)</a
+                  >
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-chevron-right"></i> TOUR (7)</a>
+                </li>
+                <li class="border_none">
+                  <a href="#"
+                    ><i class="fa fa-chevron-right"></i> TRAINING (3)</a
+                  >
+                </li>
+              </ul>
+            </div> -->
+            <div class="blod_d1r5 clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

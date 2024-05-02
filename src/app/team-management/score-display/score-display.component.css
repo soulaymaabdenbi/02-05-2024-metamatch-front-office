@@ -1,0 +1,51 @@
+.center_about_m {
+  background-image: url("./home2.jpg");
+  background-size: cover; /* This ensures the image covers the entire container */
+  background-position: center; /* This centers the image within the container */
+}
+
+.scoreboard-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+
+.scoreboard {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.score {
+  font-size: 36px;
+  margin: 0;
+  text-align: center;
+  color: black;
+}
+
+.team {
+  font-weight: bold;
+}
+
+.teamA {
+  color: #51866c;
+  margin-right: 10px; /* Add space between team A name and score */
+}
+
+.teamB {
+  color: #51866c;
+  margin-left: 10px; /* Add space between team B name and score */
+}
+
+.separator {
+  margin: 0 10px;
+}
+.match-finished {
+  font-size: 20px;
+  color: #ff0000; /* Couleur rouge pour indiquer que le match est terminé */
+  text-align: center; /* Aligner le texte au centre */
+  margin-top: 20px; /* Ajouter une marge en haut pour l'espacement */
+}

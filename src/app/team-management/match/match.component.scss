@@ -1,0 +1,102 @@
+.container {
+  text-align: center;
+  margin-top: 150px;
+  border: 2px solid #27502d;
+  border-radius: 10px;
+  padding: 20px;
+  color: #27502d;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  background-color: #f0f8ff;
+  margin-bottom: 30px;
+}
+
+.calendar-title {
+  color: #27502d;
+}
+.full-calendar {
+  width: 100%;
+  height: 600px;
+  margin-top: 200px;
+}
+.btn {
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none;
+}
+
+.overlay.show {
+  display: block;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px; /* Adjust the width as needed */
+  height: 450px; /* Adjust the height as needed */
+
+  border-radius: 10px; /* Add border radius for rounded corners */
+
+  z-index: 1000;
+  display: none;
+}
+
+.modal.show {
+  display: block;
+}
+
+.event-tooltip {
+  position: fixed;
+  background-color: rgb(151, 179, 140);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 15px;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+.event-tooltip h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+.event-tooltip p {
+  margin: 5px 0;
+  color: #666;
+}
+
+/* Style the versus symbol */
+.event-tooltip .versus {
+  margin-right: 8px; /* Adjust the margin as needed */
+  font-size: 20px;
+  color: #ff5733; /* Custom color for the versus symbol */
+}

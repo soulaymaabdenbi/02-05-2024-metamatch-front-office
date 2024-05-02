@@ -1,0 +1,98 @@
+<div
+  class="chat-container"
+  [ngClass]="{ small: isChatContainerSmall, large: !isChatContainerSmall }"
+  (click)="toggleChatContainerSize()"
+>
+  <h3>Chat Assistant</h3>
+
+  <img
+    src="robot.png"
+    *ngIf="isChatContainerSmall"
+    (click)="stopPropagation($event)"
+    class="chat-image"
+  />
+
+  <div class="domain-container" (click)="stopPropagation($event)">
+    <div class="domain-column">
+      <ul>
+        <li
+          *ngFor="
+            let domain of suggestedDomains.slice(0, suggestedDomains.length / 2)
+          "
+          (click)="selectDomain(domain)"
+        >
+          {{ domain }}
+        </li>
+      </ul>
+    </div>
+
+    <div class="domain-column">
+      <ul>
+        <li
+          *ngFor="
+            let domain of suggestedDomains.slice(suggestedDomains.length / 2)
+          "
+          (click)="selectDomain(domain)"
+        >
+          {{ domain }}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div *ngIf="selectedQuestions.length > 0">
+    <p>Suggested Questions:</p>
+
+    <div
+      class="question-list"
+      cdkDropList
+      [cdkDropListData]="selectedQuestions"
+      (cdkDropListDropped)="onQuestionDropped($event)"
+    >
+      <div
+        *ngFor="let question of selectedQuestions; let i = index"
+        cdkDrag
+        (click)="selectQuestion(question); stopPropagation($event)"
+      >
+        <span>{{ question }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Zone de conversation -->
+
+  <div class="chat-messages" (click)="stopPropagation($event)">
+    <div *ngFor="let item of conversation" class="chat-message">
+      <div *ngIf="item.question" class="message from-me">
+        <p class="content">{{ item.question }}</p>
+      </div>
+
+      <div *ngIf="item.response" class="message from-assistant">
+        <div class="assistant-avatar">
+          <img src="assets/img/robot.png" class="avatar" alt="Avatar" />
+        </div>
+
+        <div class="assistant-message">
+          <p class="content">{{ item.response }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Zone de saisie pour poser une question -->
+
+  <div class="chat-input" (click)="stopPropagation($event)">
+    <input
+      type="text"
+      id="question"
+      [(ngModel)]="question"
+      name="question"
+      (keypress)="onKeyPress($event)"
+      placeholder="Type your question here..."
+    />
+
+    <div class="send-button-container" (click)="stopPropagation($event)">
+      <button (click)="askQuestion()">Send</button>
+    </div>
+  </div>
+</div>

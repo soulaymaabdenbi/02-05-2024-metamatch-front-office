@@ -1,0 +1,91 @@
+<section id="center" class="clearfix center_contact">
+  <div class="center_about_m clearfix">
+    <div class="container">
+      <div class="row">
+        <div class="gallery_h text-center mgt1 clearfix">
+          <div class="col-sm-12">
+            <h1 class="mgt col">Our Team</h1>
+            <hr />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="team_ab" class="clearfix">
+  <div class="container">
+    <div class="row">
+      <!-- Section pour afficher les joueurs -->
+      <div class=" col-md-8">
+        <h2 class="section-heading">Our Team</h2>
+        <hr class="section-divider">
+        <div class="player-list row">
+          <div *ngFor="let joueur of joueurs" class=" col-md-6">
+            <img [src]="getPlayerImage(joueur?._id)" alt="{{ joueur.fullname }}" class="player-image">
+            <div class="player-details">
+              <h3 class="player-name">{{ joueur.username }}</h3>
+              <h6 class="player-position">{{ joueur.nationality }}</h6>
+              <p class="player-info">{{ joueur.age }} ans</p>
+              <button [routerLink]="['/view-injuries', joueur._id]">View Injuries</button>
+            </div>
+            <br>
+            <br>
+          </div>
+          <div *ngIf="!joueurs" class="no-players">
+            <p>No players available.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Section pour afficher les articles -->
+      <div class="col-md-4">
+        <div class="forum-form card">
+          <div class="card-body">
+            <h2 class="card-title">Injury Articles</h2>
+            <br>
+            <ul class="pagination" *ngIf="totalPages > 0">
+              <li  *ngFor="let article of getArticlesForCurrentPage()" class="article-item">
+                <img [src]="article.imageUrl" alt="{{ article.playerProfileLink }}" class="article-image">
+                <div class="article-details">
+                  <p class="d1">{{ article.publicationDate }} </p>
+                  <h4 >{{ article.playerName }}</h4>
+                  <p class="d1">{{ article.playerPosition }} | {{ article.club }}</p>
+                  <h6 >{{ article.injuryType }}</h6>
+                  <p class="d1">{{ article.marketValue }}</p>
+                  <a [href]="article.articleUrl" class="read-more">Read More</a>
+                </div>
+              </li>
+            </ul>
+              <div *ngIf="!articles" class="no-articles">
+                <p>No articles available.</p>
+              </div>
+
+                                <!-- Pagination -->
+                    <div class="pagination-container" *ngIf="totalPages > 1">
+                      <ul class="pagination">
+                        <!-- Bouton Précédent -->
+                        <li class="page-item" [class.disabled]="currentPage === 1">
+                          <a class="page-link" (click)="pageChanged(currentPage - 1)" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                          </a>
+                        </li>
+                        <!-- Affichage des numéros de page avec la classe personnalisée -->
+                        <li class="page-item" *ngFor="let page of getPageNumbers()" [class.active]="currentPage === page">
+                          <a class="page-link green-pagination" (click)="pageChanged(page)">{{ page }}</a>
+                        </li>
+                        <!-- Bouton Suivant -->
+                        <li class="page-item" [class.disabled]="currentPage === totalPages">
+                          <a class="page-link" (click)="pageChanged(currentPage + 1)" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+
+
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+</section>

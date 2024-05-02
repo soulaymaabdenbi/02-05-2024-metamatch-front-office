@@ -1,0 +1,42 @@
+<!-- <div class="container">
+  <h2>Match Calendar</h2>
+
+  <full-calendar [options]="calendarOptions"></full-calendar>
+</div>
+
+<div
+  class="event-tooltip"
+  *ngIf="tooltipVisible"
+  [style.top.px]="tooltipPosition.top"
+  [style.left.px]="tooltipPosition.left"
+>
+  <p>📅 {{ hoveredEvent?.date }}</p>
+  <p>📍 {{ hoveredEvent?.location }}</p>
+  <p>👥 {{ hoveredEvent?.teamA }} 🆚 {{ hoveredEvent?.teamB }}</p>
+</div> -->
+
+<div class="container">
+  <h2 class="calendar-title">Match Calendar</h2>
+
+  <full-calendar class="calendar" [options]="calendarOptions"></full-calendar>
+</div>
+
+<div
+  class="event-tooltip"
+  *ngIf="tooltipVisible"
+  [style.top.px]="tooltipPosition.top"
+  [style.left.px]="tooltipPosition.left"
+>
+  <p>
+    📅 <span class="tooltip-info">{{ hoveredEvent?.date }}</span>
+  </p>
+  <p>
+    📍 <span class="tooltip-info">{{ hoveredEvent?.location }}</span>
+  </p>
+  <p>
+    👥
+    <span class="tooltip-info"
+      >{{ hoveredEvent?.teamA }} 🆚 {{ hoveredEvent?.teamB }}</span
+    >
+  </p>
+</div>

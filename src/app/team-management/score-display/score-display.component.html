@@ -1,0 +1,43 @@
+<section id="center" class="clearfix center_contact">
+  <div class="center_about_m clearfix">
+    <div class="container">
+      <div class="row">
+        <div class="gallery_h text-center mgt1 clearfix">
+          <div class="col-sm-12">
+            <h1 class="mgt col">Live Score</h1>
+            <hr />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--  
+<section class="scoreboard-container">
+  <div class="scoreboard">
+    <h1 class="score">
+      <span class="team teamA">Team A</span>
+      <span class="score"> {{ teamScores.teamA }}</span>
+      <span class="separator">:</span>
+      <span class="score">{{ teamScores.teamB }}</span>
+      <span class="team teamB">Team B</span>
+    </h1>
+  </div>
+</section>-->
+
+<section class="scoreboard-container">
+  <div>
+    <p class="match-finished" *ngIf="matchFinished">Match Finished</p>
+  </div>
+  <div class="scoreboard">
+    <h1 class="score">
+      <!-- Displaying teamA's name and score -->
+      <span class="team teamA">{{ teamScores.teamA.name }} </span>
+      <span class="score"> {{ teamScores.teamA.score }}</span>
+      <span class="separator">-</span>
+
+      <span class="score"> {{ teamScores.teamB.score }} </span>
+      <span class="team teamB"> {{ teamScores.teamB.name }}</span>
+    </h1>
+  </div>
+</section>

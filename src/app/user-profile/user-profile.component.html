@@ -1,0 +1,97 @@
+<section id="center" class="center_home">
+  <div class="container">
+    <div class="row" style="margin-top: 100px;">
+      <div *ngIf="alertMessage" class="alert" [ngClass]="{
+      'alert-success': alertType === 'success',
+      'alert-danger': alertType === 'danger'
+    }">
+        {{ alertMessage }}
+      </div>
+      <!-- Profile Image Column -->
+      <div class="col-lg-4 col-md-12 mb-4" >
+        <div class="profile-image-container text-center">
+          <h3 class="profile-image-title">Profile Picture</h3>
+          <div class="image-wrapper">
+            <img *ngIf="userProfileForm.value.profile; else defaultImage"
+                 [src]="userProfileForm.value.profile"
+                 class="profile-image"
+                 alt="Profile Image">
+            <ng-template #defaultImage>
+              <img src="assets/img/default-avatar.png" class="profile-image" alt="Default Profile Image">
+            </ng-template>
+
+          </div>
+          <p class="image-size-info">JPG or PNG no larger than 5 MB</p>
+          <button class="btn btn-primary btn-upload-image" (click)="fileInput.click()">
+            Upload new image
+          </button>
+          <input type="file" #fileInput hidden (change)="uploadImage($event)"
+                 style="display: none;">
+
+        </div>
+      </div>
+
+      <!-- Account Details Column -->
+      <div class="col-lg-8 col-md-12">
+        <div class="account-details">
+          <h3 class="account-details-title">Account Details</h3>
+          <form [formGroup]="userProfileForm" (ngSubmit)="onSubmit()">
+
+            <!-- Username -->
+            <div class="form-group">
+              <label for="username" class="form-label">Username</label>
+              <input type="text" class="form-control" id="username" formControlName="username" placeholder="Enter username">
+            </div>
+
+            <!-- Full Name -->
+            <div class="form-group">
+              <label for="fullname" class="form-label">Full Name</label>
+              <input type="text" class="form-control" id="fullname" formControlName="fullname" placeholder="Enter full name">
+            </div>
+
+            <!-- Address -->
+            <div class="form-group">
+              <label for="address" class="form-label">Address</label>
+              <input type="text" class="form-control" id="address" formControlName="address" placeholder="Enter address">
+            </div>
+
+            <!-- Phone -->
+            <div class="form-group">
+              <label for="phone" class="form-label">Phone</label>
+              <input type="tel" class="form-control" id="phone" formControlName="phone" placeholder="Enter phone number">
+            </div>
+
+            <!-- Height -->
+            <div class="form-group">
+              <label for="height" class="form-label">Height</label>
+              <input type="text" class="form-control" id="height" formControlName="height" placeholder="Enter height">
+            </div>
+
+            <!-- Weight -->
+            <div class="form-group">
+              <label for="weight" class="form-label">Weight</label>
+              <input type="number" class="form-control" id="weight" formControlName="weight" placeholder="Enter weight">
+            </div>
+
+            <!-- Age -->
+            <div class="form-group">
+              <label for="age" class="form-label">Age</label>
+              <input type="number" class="form-control" id="age" formControlName="age" placeholder="Enter age">
+            </div>
+
+            <!-- Nationality -->
+            <div class="form-group">
+              <label for="nationality" class="form-label">Nationality</label>
+              <input type="text" class="form-control" id="nationality" formControlName="nationality" placeholder="Enter nationality">
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center mt-4">
+              <button type="submit" class="btn btn-primary btn-save-changes">Save Changes</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

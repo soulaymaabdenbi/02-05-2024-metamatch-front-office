@@ -1,0 +1,94 @@
+
+.center_about_m {
+  background-image: url("./home7.jpg");
+  background-size: cover; /* This ensures the image covers the entire container */
+  background-position: center; /* This centers the image within the container */
+}
+.container {
+  padding: 20px;
+  margin-top: 50px;
+}
+.author-name {
+  text-align: right;
+}
+
+.forum-post {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  background-color: #f9f9f9;
+}
+
+.forum-post .card-body {
+  padding: 15px;
+}
+
+.forum-post .card-title {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.forum-post .card-text {
+  color: #666;
+}
+
+.forum-post .card-text:last-child {
+  margin-bottom: 0;
+}
+
+.forum-post .btn-group {
+  margin-top: 10px;
+}
+
+.forum-form {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  margin-top: 50px;
+}
+
+.forum-form .card-body {
+  padding: 15px;
+}
+
+.forum-form .card-title {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.forum-form input[type="text"],
+.forum-form textarea {
+  margin-bottom: 10px;
+}
+
+/* .forum-form .btn-primary {
+  background-color: #098f5b;
+  justify-content: center;
+  color: #fff;
+
+  border-radius: 3px;
+  text-decoration: none;
+  font-size: small;
+  width: 25%;
+} */
+
+.forum-form .btn-primary {
+  background-color: #098f5b;
+  color: #fff;
+  border-radius: 3px;
+  text-decoration: none;
+  font-size: small;
+  width: 25%;
+  margin: auto;
+  display: block;
+}
+
+.forum-form .form-actions {
+  text-align: right;
+}
+
+.forum-form .form-actions .btn {
+  margin-left: 5px;
+}

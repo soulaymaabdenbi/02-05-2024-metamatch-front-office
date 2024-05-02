@@ -1,0 +1,201 @@
+<section id="center" class="clearfix center_contact">
+  <div class="center_about_m clearfix">
+    <div class="container">
+      <div class="row">
+        <div class="gallery_h text-center mgt1 clearfix">
+          <div class="col-sm-12">
+            <h1 class="mgt col">Forum Area</h1>
+            <hr />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <!-- Forum posts -->
+  <div class="row">
+    <div class="col-md-8">
+      <div class="forum-posts">
+        <div class="forum-post card mb-3" *ngFor="let forum of forums">
+          <div class="card-body">
+            <h5 class="card-title">{{ forum.title }}</h5>
+            <p class="card-text text-muted author-name">
+              By {{ forum.author }}
+            </p>
+            <p class="card-text">{{ forum.content }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="forum-form card">
+        <div class="card-body">
+          <h2 class="card-title">Create New Post</h2>
+          <form [formGroup]="newForumForm" (ngSubmit)="addForum()">
+            <!-- Title input field -->
+            <div class="form-group">
+              <input
+                type="text"
+                formControlName="title"
+                class="form-control"
+                placeholder="Title"
+              />
+              <!-- Display error message if title field is touched and has errors -->
+              <div
+                *ngIf="
+                  newForumForm.get('title')?.touched &&
+                  newForumForm.get('title')?.errors
+                "
+              >
+                <!-- Display required error message -->
+                <div
+                  *ngIf="newForumForm.get('title')?.errors?.['required']"
+                  class="text-danger"
+                >
+                  Title is required.
+                </div>
+                <!-- Display minlength error message -->
+                <div
+                  *ngIf="newForumForm.get('title')?.errors?.['minlength'] && newForumForm.get('title')?.touched"
+                  class="text-danger"
+                >
+                  Title must be at least 10 characters.
+                </div>
+              </div>
+            </div>
+
+            <!-- Content textarea field -->
+            <div class="form-group">
+              <textarea
+                formControlName="content"
+                class="form-control"
+                placeholder="Content"
+                rows="4"
+              ></textarea>
+              <!-- Display error message if content field is touched and has errors -->
+              <div
+                *ngIf="
+                  newForumForm.get('content')?.touched &&
+                  newForumForm.get('content')?.errors
+                "
+              >
+                <!-- Display required error message -->
+                <div
+                  *ngIf="newForumForm.get('content')?.errors?.['required']"
+                  class="text-danger"
+                >
+                  Content is required.
+                </div>
+                <!-- Display minlength error message -->
+                <div
+                  *ngIf="newForumForm.get('content')?.errors?.['minlength'] && newForumForm.get('content')?.touched"
+                  class="text-danger"
+                >
+                  Content must be at least 20 characters.
+                </div>
+                <!-- Display maxlength error message -->
+                <div
+                  *ngIf="newForumForm.get('content')?.errors?.['maxlength'] && newForumForm.get('content')?.touched"
+                  class="text-danger"
+                >
+                  Content must not exceed 100 characters.
+                </div>
+              </div>
+            </div>
+
+            <!-- Author input field -->
+            <div class="form-group">
+              <input
+                type="text"
+                formControlName="author"
+                class="form-control"
+                placeholder="Your Name"
+              />
+              <!-- Display error message if author field is touched and has errors -->
+              <div
+                *ngIf="
+                  newForumForm.get('author')?.touched &&
+                  newForumForm.get('author')?.errors
+                "
+              >
+                <!-- Display required error message -->
+                <div
+                  *ngIf="newForumForm.get('author')?.errors?.['required']"
+                  class="text-danger"
+                >
+                  Author name is required.
+                </div>
+                <!-- Display minlength error message -->
+                <div
+                  *ngIf="newForumForm.get('author')?.errors?.['minlength'] && newForumForm.get('author')?.touched"
+                  class="text-danger"
+                >
+                  Author name must be at least 3 characters.
+                </div>
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-primary btn-block"
+              [disabled]="newForumForm?.invalid"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Edit Post Form -->
+    <div class="forum-form card mt-4" *ngIf="selectedForum">
+      <div class="card-body">
+        <h2 class="card-title">Edit Post</h2>
+        <form (ngSubmit)="updateForum()">
+          <div class="form-group">
+            <input
+              type="text"
+              [(ngModel)]="selectedForum.title"
+              name="title"
+              class="form-control"
+              placeholder="Title"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <textarea
+              [(ngModel)]="selectedForum.content"
+              name="content"
+              class="form-control"
+              placeholder="Content"
+              rows="4"
+              required
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              [(ngModel)]="selectedForum.author"
+              name="author"
+              class="form-control"
+              placeholder="Your Name"
+              required
+            />
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-success">Update</button>
+            <button
+              type="button"
+              (click)="selectedForum = null"
+              class="btn btn-secondary"
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

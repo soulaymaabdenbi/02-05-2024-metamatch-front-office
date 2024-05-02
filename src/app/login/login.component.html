@@ -1,0 +1,24 @@
+<div class="login-form" *ngIf="loginForm">
+  <img src="assets/img/logoMeta.png" alt="MetaMatch Logo" class="logo" width="70px" height="80px">
+  <div class="text">
+    LOGIN
+  </div>
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <div class="field">
+      <div class="fas fa-envelope"></div>
+      <input formControlName="email" type="text" placeholder="Email or Phone">
+    </div>
+    <div class="field">
+      <div class="fas fa-lock"></div>
+      <input formControlName="password" type="password" placeholder="Password">
+    </div>
+    <button type="submit">LOGIN</button>
+    <button type="button" class="google-btn" id="google_btn" #google_btn>
+      Connect with Google
+    </button>
+    <!-- Remaining elements -->
+  </form>
+</div>

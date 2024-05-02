@@ -1,0 +1,120 @@
+/* Navbar */
+.navbar {
+  background-color: #212529; /* Dark gray */
+  border-bottom: 2px solid #007bff; /* Blue */
+  border-radius: 0;
+  padding: 15px 0;
+}
+
+.navbar-brand {
+  color: #ffffff; /* White */
+  font-size: 28px;
+  font-weight: bold;
+  padding: 0 15px;
+  margin-top: 0px;
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus {
+  color: #ffffff; /* White */
+}
+
+.navbar-nav > li > a {
+  color: #ffffff; /* White */
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px;
+  line-height: normal; /* Adjust line height for vertical alignment */
+  display: flex; /* Use flexbox for centering items */
+  align-items: center; /* Align items vertically */
+}
+
+.navbar-nav > li > a:hover,
+.navbar-nav > li > a:focus {
+  color: #f8f9fa; /* Light gray */
+}
+
+/* Profile image specific styles */
+.navbar-nav > li > a .profile-image {
+  border-radius: 50%; /* Make it rounded */
+  object-fit: cover; /* Maintain aspect ratio and crop as needed */
+  align-self: center; /* Align the image to the center of the 'a' element */
+}
+
+/* Dropdown */
+.dropdown-menu {
+  background-color: transparent; /* Transparent background */
+  border: none; /* Remove border */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow */
+  right: 0; /* Align to the right */
+}
+
+.dropdown-menu > li > a {
+  color: #ffffff; /* White */
+  font-size: 16px;
+  font-weight: bold;
+  padding: 4px 12px;
+}
+
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  background-color: rgba(76, 134, 81, 0.1); /* Transparent background on hover */
+  color: #459256; /* Blue */
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  min-width: 100px;
+  z-index: 1;
+}
+
+.dropdown-menu a {
+  color: #7fa095; /* White */
+  padding: 10px 14px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-menu a:hover {
+  background-color: rgba(75, 141, 108, 0.1); /* Transparent background on hover */
+  color: #3d836b; /* Blue */
+}
+
+.dropdown:hover .dropdown-menu {
+  background-color: #343a40;
+  display: block;
+}
+
+/* Adjust the profile image size and alignment */
+.profile-image {
+  width: 30px; /* Adjust the width as needed */
+  height: 30px; /* Adjust the height as needed */
+  border-radius: 50%; /* Make it rounded */
+  object-fit: cover; /* Maintain aspect ratio and crop as needed */
+  margin-right: 8px; /* Space between image and dropdown icon */
+}
+
+/* Align the dropdown toggle vertically */
+.dropdown > a {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+}
+
+.search-container {
+  padding: 10px;
+  background: #f2f2f2;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}

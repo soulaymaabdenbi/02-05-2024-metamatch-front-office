@@ -1,0 +1,139 @@
+<div class="container" style="margin-top: 20rem">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="sidebar">
+        <h2 class="mb-4">Schedule Meeting</h2>
+        <form (ngSubmit)="scheduleMeeting()" #meetingForm="ngForm" novalidate>
+          <div class="inputfield mb-4">
+            <label for="meetingName" class="form-label"
+              >Meeting Description</label
+            >
+            <input
+              type="text"
+              [(ngModel)]="meetingName"
+              name="meetingName"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="meetingDate" class="form-label">Meeting Date</label>
+            <input
+              type="date"
+              [(ngModel)]="meetingDate"
+              name="meetingDate"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <div><label class="form-label">Medical Professional</label></div>
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="physiotherapistCheckbox"
+              [(ngModel)]="isPhysiotherapistSelected"
+              (ngModelChange)="onProfessionalChange()"
+              name="physiotherapistCheckbox"
+              [disabled]="isDoctorSelected"
+              required
+            />
+            <label class="form-check-label" for="physiotherapistCheckbox"
+              >Physiotherapist</label
+            >
+            <select
+              *ngIf="isPhysiotherapistSelected"
+              [(ngModel)]="selectedPhysiotherapist"
+              name="selectedPhysiotherapist"
+              class="form-control"
+              required
+            >
+              <option
+                *ngFor="let physiotherapist of physiotherapists"
+                [ngValue]="physiotherapist.email"
+              >
+                {{ physiotherapist.email }}
+              </option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              id="doctorCheckbox"
+              [(ngModel)]="isDoctorSelected"
+              (ngModelChange)="onProfessionalChange()"
+              name="doctorCheckbox"
+              [disabled]="isPhysiotherapistSelected"
+              required
+            />
+            <label class="form-check-label" for="doctorCheckbox">Doctor</label>
+            <select
+              *ngIf="isDoctorSelected"
+              [(ngModel)]="selectedDoctor"
+              name="selectedDoctor"
+              class="form-control"
+              required
+            >
+              <option *ngFor="let doctor of doctors" [ngValue]="doctor.email">
+                {{ doctor.email }}
+              </option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">
+            <i class="fas fa-calendar-plus"></i> Organize
+          </button>
+          <!-- Afficher le message d'erreur -->
+          <div *ngIf="showProfessionalSelectionError" class="text-danger mt-2">
+            Please select only one medical professional.
+          </div>
+          <div *ngIf="showDateError" class="text-danger mt-2">
+            Meeting Date should be in the future !
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-md-8">
+      <h2 class="mb-4">Meeting Calendar</h2>
+      <div id="calendar-container">
+        <full-calendar
+          [options]="calendarOptions"
+          [events]="calendarEvents"
+          (eventClick)="handleEventClick($event)"
+        >
+          <ng-template #eventContent let-event>
+            <div
+              class="meeting-event"
+              [ngClass]="{
+                'meeting-success':
+                  isMeetingConfirmed(event.event.extendedProps.meetingId) &&
+                  isMeetingDatePassed(event.event.start)
+              }"
+            >
+              <span>{{ event.event.title }}</span>
+              <span class="confirmation-status">
+                <i
+                  class="fas fa-{{
+                    isMeetingConfirmed(event.event.extendedProps.meetingId)
+                      ? 'check-circle custom-blue'
+                      : 'clock custom-blue'
+                  }}"
+                ></i>
+              </span>
+              <!-- Bouton d'annulation uniquement si la réunion n'est pas confirmée -->
+              <button
+                *ngIf="!(event.isConfirmed && isMeetingDatePassed(event.start))"
+                class="btn btn-danger btn-sm"
+                (click)="cancelMeeting(event.event.extendedProps.meetingId)"
+                style="margin-left: 10px"
+              >
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </ng-template>
+        </full-calendar>
+      </div>
+    </div>
+  </div>
+</div>

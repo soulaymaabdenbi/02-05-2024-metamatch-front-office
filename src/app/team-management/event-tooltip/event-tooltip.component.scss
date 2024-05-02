@@ -1,0 +1,7 @@
+.event-tooltip {
+  position: absolute;
+  background-color: rgb(190, 126, 126);
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 10000; /* Ensure a higher z-index */
+}

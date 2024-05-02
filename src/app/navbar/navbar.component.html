@@ -1,0 +1,247 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="col-sm-12">
+      <div class="navbar-header page-scroll">
+        <button
+          type="button"
+          class="navbar-toggle"
+          data-toggle="collapse"
+          data-target="#bs-example-navbar-collapse-1"
+        >
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" routerLink="/">
+          <img
+            src="assets/img/logoMeta.png"
+            alt=""
+            width="100px"
+            height="120px"
+          />
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a
+              class="tag_menu"
+              [class.active_tab]="currentRoute === '/home'"
+              routerLink="/home"
+              >Home</a
+            >
+          </li>
+
+          <li>
+            <a
+              class="tag_menu"
+              [class.active_tab]="currentRoute.startsWith('/meetingsList')"
+              routerLink="/meetingsList"
+              >Meeting</a
+            >
+          </li>
+          <li>
+            <a class="tag_menu" routerLink="/chats">Chats</a>
+          </li>
+          <li>
+            <a
+              class="tag_menu"
+              [class.active_tab]="currentRoute.startsWith('/teams/forum')"
+              routerLink="/teams/forum"
+              >Forum</a
+            >
+          </li>
+          <li>
+            <a
+              class="tag_menu"
+              [class.active_tab]="currentRoute.startsWith('/teams/matches')"
+              routerLink="/teams/matches"
+              >Matches</a
+            >
+          </li>
+          <li>
+            <a
+              class="tag_menu"
+              [class.active_tab]="currentRoute.startsWith('/teams/score')"
+              routerLink="/teams/score"
+              >Live Score</a
+            >
+          </li>
+          <li>
+            <a
+              class="tag_menu"
+              [class.active_tab]="currentRoute.startsWith('/teams/calendar')"
+              routerLink="/teams/calendar"
+              >Calendar</a
+            >
+          </li>
+          <li>
+            <a
+              class="tag_menu"
+              [class.active_tab]="currentRoute.startsWith('/teams/session')"
+              routerLink="/teams/session"
+              >Training</a
+            >
+          </li>
+          <li>
+            <a
+              class="tag_menu"
+              [class.active_tab]="currentRoute.startsWith('/teams/blog')"
+              routerLink="/teams/blog"
+              >Blog</a
+            >
+          </li>
+          <li>
+            <a
+              class="tag_menu"
+              [class.active_tab]="currentRoute.startsWith('/injury')"
+              routerLink="/injury"
+              >INJURY</a
+            >
+          </li>
+
+          <!-- <li>
+            <a class="tag_menu" routerLink="/contact">Contact</a>
+          </li> -->
+          <!-- <li class="dropdown">
+            <a class="tag_menu" href="#" data-toggle="dropdown"
+              ><span class="fa fa-search"></span
+            ></a>
+            <ul class="dropdown-menu drop_2" style="min-width: 300px">
+              <li>
+                <div class="row_1">
+                  <div class="col-sm-12">
+                    <form class="navbar-form navbar-left" role="search">
+                      <div class="input-group">
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Search"
+                        />
+                        <span class="input-group-btn">
+                          <button class="btn btn-primary" type="button">
+                            Search
+                          </button>
+                        </span>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li> -->
+          <!-- <li class="dropdown">
+            <a
+              class="tag_menu"
+              href="#"
+              data-toggle="dropdown"
+              role="button"
+              aria-expanded="false"
+              ><i class="fa fa-comments"></i
+            ></a>
+
+            <ul class="dropdown-menu drop_1" role="menu">
+              <li>No products in the cart.</li>
+            </ul>
+          </li> -->
+
+          <!-- <li class="dropdown">
+            <a
+              class="tag_menu"
+              href="#"
+              data-toggle="dropdown"
+              role="button"
+              aria-expanded="false"
+              >MORE<span class="caret"></span
+            ></a>
+            <ul class="dropdown-menu drop_1" role="menu">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="team.html">Team</a></li>
+              <li><a href="team.html">Scores</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </li> -->
+          <!-- Profile dropdown -->
+          <li class="dropdown">
+            <a
+              class="tag_menu"
+              href="#"
+              data-toggle="dropdown"
+              role="button"
+              aria-expanded="false"
+            >
+              <img
+                *ngIf="currentUserProfileImage"
+                [src]="currentUserProfileImage"
+                class="profile-image"
+              />
+              <i class="fa fa-user" *ngIf="!currentUserProfileImage"></i>
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu drop_1" role="menu">
+              <li>
+                <a routerLink="user-profile">
+                  <i class="fa fa-cog"></i> Sign Up
+                </a>
+              </li>
+              <li (click)="logout()">
+                <a href="/logout"><i class="fa fa-sign-out"></i> Logout</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <!-- <section id="side_box">
+          <a id="menu-toggle" href="#" class="btn btn-primary btn-lg toggle"
+            ><i class="fa fa-list"></i
+          ></a>
+          <div id="sidebar-wrapper" class="">
+            <ul class="sidebar-nav">
+              <a
+                id="menu-close"
+                href="#"
+                class="btn btn-default btn-lg pull-right toggle"
+                ><i class="glyphicon glyphicon-remove"></i
+              ></a>
+              <li class="sidebar-brand">
+                <a href="index.html">FOOTBALL</a>
+              </li>
+            </ul>
+            <div class="wrap_inner clearfix text-center">
+              <img src="assets/img/5.jpg" alt="abc" class="iw" />
+              <p class="para_1">
+                Lorem ipsum dolor sit amet, adipiscing elit integer nec odio.
+              </p>
+              <div class="top_right clearfix">
+                <p>
+                  <a href="#"><i class="fa fa-pinterest"></i></a>
+                  <a href="#"><i class="fa fa-linkedin"></i></a>
+                  <a href="#"><i class="fa fa-dribbble"></i></a>
+                  <a href="#"><i class="fa fa-facebook"></i></a>
+                  <a href="#"><i class="fa fa-twitter"></i></a>
+                </p>
+              </div>
+            </div>
+            <div class="wrap_inner_2 clearfix">
+              <h3>Contact Us</h3>
+              <input class="form-control" placeholder="Name" type="text" />
+              <input class="form-control" placeholder="Email" type="text" />
+              <input class="form-control" placeholder="Phone" type="text" />
+              <textarea
+                class="form-control form_1"
+                placeholder="Type Text Here"
+              ></textarea>
+              <h5 class="text-center">
+                <a class="button" href="#"
+                  >Subscribe <i class="fa fa-chevron-right"></i
+                ></a>
+              </h5>
+            </div>
+          </div>
+        </section> -->
+      </div>
+    </div>
+  </div>
+</nav>

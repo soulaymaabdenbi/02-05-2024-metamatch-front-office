@@ -1,0 +1,6 @@
+.league_1i img {
+  width: 100%; /* or a fixed width, e.g., 200px */
+  height: auto; /* maintains aspect ratio */
+  object-fit: cover; /* ensures the image covers the area without stretching */
+  aspect-ratio: 1 / 1; /* ensures the images are always square */
+}

@@ -1,0 +1,53 @@
+<!-- Chat Application Component -->
+<div class="chat-app" style="margin-top: 145px;">
+  <nav class="user-list">
+    <!-- User List -->
+    <div class="search-container">
+      <input type="text" [(ngModel)]="searchTerm" (ngModelChange)="filterUsers()" placeholder="Search users..." class="search-input">
+    </div>
+    <ul>
+      <li *ngFor="let user of filteredUsers" (click)="selectUser(user)" [ngClass]="{'active': user._id === selectedUser?._id}">
+        <img [src]="user.profile" alt="{{ user.fullname }}" class="avatar">
+        <div>
+          <h5 class="username">{{ user.fullname }}</h5>
+          <small style="color: gray;">{{ user.latestMessage || 'No recent messages' }}</small>
+        </div>
+      </li>
+    </ul>
+
+  </nav>
+  <main class="chat-area" *ngIf="selectedUser">
+    <!-- Chat Area -->
+    <header class="chat-header">
+      <img [src]="selectedUser.profile" alt="{{ selectedUser.fullname }}" class="avatar" width="50px" height="50px">
+      <div class="user-info">
+        <h5 class="username">{{ selectedUser.fullname }}</h5>
+      </div>
+    </header>
+    <div class="messages" #messageArea>
+      <div *ngFor="let message of messages" class="message" [ngClass]="{'mine': isMyMessage(message.senderId), 'others': !isMyMessage(message.senderId)}">
+        <div *ngIf="message.imageUrl" class="message-content image">
+          <img [src]="message.imageUrl" alt="Sent image" width="60px" height="auto">
+        </div>
+        <div *ngIf="!message.imageUrl" class="message-content text">
+          {{ message.text }}
+        </div>
+        <div class="message-timestamp">{{ message.timestamp | date: 'shortTime' }}</div>
+      </div>
+    </div>
+
+    <footer class="chat-input">
+      <button (click)="toggleEmojiPicker()">😊</button>
+      <input type="file" style="display: none;" #fileInput (change)="uploadImageToChat($event)" accept="image/*">
+      <button (click)="fileInput.click()" class="icon-button">
+        🖼️
+      </button>
+      <input type="text" [(ngModel)]="newMessage" (keyup.enter)="sendMessage()" placeholder="Type a message...">
+      <button (click)="sendMessage()" [disabled]="!newMessage.trim()">Send</button>
+      <div *ngIf="showEmojiPicker" class="emoji-picker">
+        <emoji-mart (emojiSelect)="addEmoji($event)"></emoji-mart>
+        <button (click)="toggleEmojiPicker()">Close Emoji Picker</button> <!-- New Close Button -->
+      </div>
+    </footer>
+  </main>
+</div>
